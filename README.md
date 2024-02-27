@@ -1,8 +1,8 @@
 PDF Combiner
 ===========
-A simple shell script that merges multiple pdfs into one while allowing for the use of a simple alias. The long ghostscript inside the script (referenced below) cannot easily be set with an alias, which is the purpose of this shell script.
+A simple shell script that merges multiple PDFs into one while allowing for the use of a simple alias. The long ghostscript inside the script (referenced below) cannot easily be set with an alias, which is the purpose of this shell script.
 
-<i>Thanks to Gery on Stack Overflow for providing the ghostscript command used in the shell script to merge the pdfs, original post can be found [here](https://stackoverflow.com/a/19358402/22990019)</i>
+<i>Thanks to Gery on Stack Overflow for providing the ghostscript command used in the shell script to merge the PDFs, original post can be found [here](https://stackoverflow.com/a/19358402/22990019)</i>
 
 #### Setup
 1. `cd` to a directory of your choice and clone the repository:
