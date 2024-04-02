@@ -72,13 +72,12 @@ If we want to try and remove the whitespace, the only thing we can do is run
 $ mycmdout.pdf
 ```
 which clearly does not work. Additionally, setting the command as a function does not work either because function parameters are space delimited, which only allows for one additional file after the first one is designated as the output.
-This brings us to the solution, which is to use the positional parameter variable in Bash: `$@`.
+This brings us to the solution, which is to use the positional parameter variable (`$@`).
 
 ##### The Solution
 The shell script presented in this repository solves this issue by taking in as many parameters as needed and parses it using `$@`.
-It is parsed into two strings: one that takes the first parameter, which is the name of the output file, and the other with the rest of the parameters excluding the first parameter.
-Those two strings can then be placed into the ghostscript and be functionally ran. 
-The shell script can then be placed in a user defined library directory and properly aliased.
+It is parsed into two strings with `awk`: one that only takes the first parameter, which is the name of the output file, and the other with the rest of the parameters excluding the first (sets it to blank).
+Those two strings can then be placed into the ghostscript and be properly read and ran.
 
 ---
 #### Footnotes
