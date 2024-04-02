@@ -1,4 +1,4 @@
-PDF Combiner
+PDF Merger
 ===========
 A simple shell script that merges multiple PDFs into one while allowing for the use of a simple alias. The long ghostscript inside the script (referenced below) cannot easily be set with an alias, which is the purpose of this shell script.
 
@@ -7,23 +7,33 @@ A simple shell script that merges multiple PDFs into one while allowing for the 
 #### Setup
 1. `cd` to a directory of your choice and clone the repository:
     ```
-    $ git clone https://github.com/s7a19t4r/pdf-combine
+    $ git clone https://github.com/s7a19t4r/pdf-merge
     ```
 2. `cd` into the cloned repository and move `pdfm.sh` into a directory of your choice, preferably a user library directory (e.g. `/usr/local/lib/`):
     ```
     # use sudo if the directory is outside your home directory
     $ mv pdfm.sh dir/of/your/choice/
     ```
-3. Set up an `alias` so the file can easily be ran. Add the following to your `.bashrc` (or corresponding read command file depending on your shell)
-    ```sh
-    alias pdfm='dir/of/your/choice/pdfm.sh'
+3. Choose ONE method below to easily run the script. Method 1 is preferred but requires `sudo` privileges, so use method 2 if `sudo` is unaccessible.
+    1. Create a file called `pdfm` in `/usr/local/bin/` and symlink it to your `pdfm.sh` script. Run the following command to do so.
+        ```
+        $ sudo ln -s /dir/of/your/choice/pdfm.sh /usr/local/bin/pdfm
+        ```
+        For example, if your source script is in `/usr/local/lib/`, you would run
+        ```
+        $ sudo ln -s /usr/local/lib/pdfm.sh /usr/local/bin/pdfm
+        ```
+        Now you can run the script with simply `pdfm` like a built-in because files in `/usr/local/bin/` are treated as shell commands.
+    2. Set up an `alias` so the file can be easily ran and mimics a built-in script. Add the following to your `.bashrc` (or corresponding rc file depending on your shell)
+        ```sh
+        alias pdfm='dir/of/your/choice/pdfm.sh'
 
-    # below is what is in my .bashrc
-    alias pdfm='/usr/local/lib/pdfm.sh'
-    ```
+        # below is what is in my .bashrc
+        alias pdfm='/usr/local/lib/pdfm.sh'
+        ```
 
 #### Usage
-To use, simply type your chosen alias for `pdfm.sh`, followed by the name of the output file, then a space delimited list of input files.
+To use, type the command, followed by the name of the output file, then a space delimited list of input files to be merged.
 ```
 $ pdfm <output-file> <input-files>
 ```
